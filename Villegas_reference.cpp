@@ -6,8 +6,10 @@
 
 #include <iostream>
 #include <cassert>
+#include <cmath>
 using namespace std; 
 
+// sorts the numbers  smaller to largest 
 void sort(int& numA, int& numB, int& numC);
 
 
@@ -27,11 +29,18 @@ int main(){
     int num1 = 71, num3 = 42, num2=78;
     sort(num1,num2,num3);
 
+    int testNumber = 1789, testNumber2 = -46783, test1, test2;
+    numDigits(testNumber, test1);
+    cout << "should be 4" << endl;
+    numDigits(testNumber2, test2);
+    cout << "should be 5" << endl;
+
     return 0; 
 }
 
 void sort(int& numA, int& numB, int& numC){
 
+    
     int biggest, middle, smallest; 
 
     if((numC > numB) && (numC > numA)){
@@ -86,4 +95,31 @@ void sort(int& numA, int& numB, int& numC){
         
     return ; 
 }
+
+void numDigits(int valA, int& n){
+
+    int numTest = abs(valA);
+    int placeValue = 1;
+    if (numTest / 100000 > 0){
+        placeValue++;
+    }
+    if (numTest / 10000 > 0){
+        placeValue++;
+    }
+    if (numTest / 1000 > 0){
+        placeValue++;
+    }
+    if (numTest / 100 > 0){
+        placeValue++;
+    }
+    if (numTest / 10 > 0){
+        placeValue++;
+    }
+    n = placeValue;
+    cout << n << endl;
+}
+
+
+
+
 
